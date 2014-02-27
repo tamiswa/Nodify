@@ -2,6 +2,7 @@ crypto = require 'crypto'
 Blog = require './resources/blog'
 Product = require './resources/product'
 Order = require './resources/order'
+ApplicationCharge = require './resources/application_charge'
 
 trim = (string) ->
   string.replace(/^\s\s*/, '').replace(/\s\s*$/, '')
@@ -47,6 +48,7 @@ class Session
       @blog = new Blog(@site())
       @product = new Product(@site())
       @order = new Order(@site())
+      @application_charge = new ApplicationCharge(@site())
 
   createPermissionUrl: ->
     "http://#{@url}/admin/api/auth?api_key=#{@apiKey}" if not empty(@url) and not empty(@apiKey)

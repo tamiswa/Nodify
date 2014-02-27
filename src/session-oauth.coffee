@@ -1,6 +1,7 @@
 Blog = require './resources/blog'
 Product = require './resources/product'
 Order = require './resources/order'
+ApplicationCharge = require './resources/application_charge'
 Resource = require './resource'
 Session = require './session'
 
