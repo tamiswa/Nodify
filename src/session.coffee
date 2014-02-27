@@ -3,6 +3,8 @@ Blog = require './resources/blog'
 Product = require './resources/product'
 Order = require './resources/order'
 ApplicationCharge = require './resources/application_charge'
+CarrierService = require './resources/carrier_service'
+FulfillmentService = require './resources/fulfillment_service'
 
 trim = (string) ->
   string.replace(/^\s\s*/, '').replace(/\s\s*$/, '')
@@ -49,6 +51,8 @@ class Session
       @product = new Product(@site())
       @order = new Order(@site())
       @application_charge = new ApplicationCharge(@site())
+      @carrier_service = new CarrierService(@site())
+      @fulfillment_service = new FulfillmentService(@site())
 
   createPermissionUrl: ->
     "http://#{@url}/admin/api/auth?api_key=#{@apiKey}" if not empty(@url) and not empty(@apiKey)
