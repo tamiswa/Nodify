@@ -6,6 +6,7 @@ ApplicationCharge = require './resources/application_charge'
 CarrierService = require './resources/carrier_service'
 FulfillmentService = require './resources/fulfillment_service'
 Webhook = require './resources/webhook'
+Shop = require './resources/shop'
 
 trim = (string) ->
   string.replace(/^\s\s*/, '').replace(/\s\s*$/, '')
@@ -55,6 +56,7 @@ class Session
       @carrier_service = new CarrierService(@site())
       @fulfillment_service = new FulfillmentService(@site())
       @webhook = new Webhook(@site())
+      @shop = new Shop(@site())
 
   createPermissionUrl: ->
     "http://#{@url}/admin/api/auth?api_key=#{@apiKey}" if not empty(@url) and not empty(@apiKey)
